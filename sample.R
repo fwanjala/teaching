@@ -1,10 +1,18 @@
-setwd("C:/Users/fridah.wanjala/Downloads")
+## Code to sample from a file
 library(readxl)
 library(dplyr)
+library(openxlsx)
+
+## Import the file
 df <- read_excel("accounts2.xlsx")
 
+## Sample
 sample <- df %>%
   group_by(month) %>%
   sample_n(30)
 
-write.csv(sample, "C:\\Users\\fridah.wanjala\\Documents\\Work\\CreditAnalysis\\201907_All_UpsellAnalysis\\data\\powerbi.csv")
+## Write to csv
+write.csv(sample, "powerbi.csv")
+
+## Write to xlsx
+write.xlsx(sample, "powerbi.xlsx")
