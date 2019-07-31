@@ -7,7 +7,7 @@ library(openxlsx)
 df <- read_excel("accounts2.xlsx")
 
 ## Sample
-sample <- df %>%
+samplen <- df %>%
   group_by(month) %>%
   sample_n(30)
 
@@ -16,3 +16,8 @@ write.csv(sample, "powerbi.csv")
 
 ## Write to xlsx
 write.xlsx(sample, "powerbi.xlsx")
+
+## Sample using percentages
+samplep <- df %>%
+  group_by(month) %>%
+  sample_n(30.3)
